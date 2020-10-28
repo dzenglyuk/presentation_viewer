@@ -1,10 +1,14 @@
-import './App.css';
+import React from "react";
+import NavBar from "./components/NavBar/Main";
+import WeatherViewer from "./components/WeatherViewer/Main";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-    </div>
+    <React.Fragment>
+      <NavBar />
+      <WeatherViewer />
+    </React.Fragment>
   );
-}
+};
 
 export default App;
