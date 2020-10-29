@@ -5,14 +5,14 @@ import Units from "../Units/Main";
 
 import "./Main.css";
 
-const NavBar = ({}) => {
+const NavBar = ({ onData, units, onUnitsChange }) => {
     return (
         <div className="navbar">
             <Logo />
-            <Search />
-            <Units />
+            <Search onData={onData} units={units} />
+            <Units units={units} onChange={onUnitsChange} />
         </div>
     );
 };
 
-export default NavBar;
+export default React.memo(NavBar);

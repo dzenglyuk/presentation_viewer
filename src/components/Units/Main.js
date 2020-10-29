@@ -6,18 +6,19 @@ import "./Main.css";
 
 const { Option } = Select;
 
-const Units = ({ value, onChange }) => {
+const Units = ({ units, onChange }) => {
     const unitsList = [
         { value: "standard", title: "Kelvin" },
         { value: "imperial", title: "Fahrenheit" },
-        { value: "metric", title: "Celsius" },
+        { value: "metric", title: "Celsius" }
     ];
+    const handleChange = (value) => onChange(value);
+    
     return (
         <div className="units">
             <Select
-                // defaultValue={value}
-                value={value}
-                onChange={onChange}
+                value={units}
+                onChange={handleChange}
                 className="select"
             >
                 {unitsList.map((unit) => (
@@ -32,4 +33,4 @@ Units.defaultProps = {
     value: "metric",
 };
 
-export default Units;
+export default React.memo(Units);

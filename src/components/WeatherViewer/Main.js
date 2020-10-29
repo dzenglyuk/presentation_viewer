@@ -6,4 +6,4 @@ const WeatherViewer = ({}) => {
     );
 };
 
-export default WeatherViewer;
+export default React.memo(WeatherViewer);
