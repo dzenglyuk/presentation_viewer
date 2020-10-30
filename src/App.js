@@ -1,22 +1,40 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import NavBar from "./components/NavBar/Main";
 import WeatherViewer from "./components/WeatherViewer/Main";
 
-//Have to create debouncer for api request
-
 const App = () => {
-    const [data, setData] = useState({});
-    const [units, setUnits] = useState("metric");
+    const [query, setQuery] = useState({value: '', units: 'metric'});
+    const [units, setUnits] = useState("Celsius");
 
-    const handleData = (newData) => setData(newData);
-    const handleUnints = (newUnits) => setUnits(newUnits);
+    useEffect(() => {
+      let ignore = false;
+      const fetchCity = async () => {
+        try {
+          const response = await axios(process.env.REACT_APP_IP_INFO_URL);
+          if (!ignore) setQuery((query) => ({...query, value: response.data.city}));
+        } catch (err) {
+          console.log(err);
+        }
+      };
+      fetchCity();
+      return (() => { ignore = true; });
+    }, []);
+
+    const handleQueryChange = (value) => {
+      setQuery((query) => ({...query, value}));
+    };
+    const handleUnintsChange = (units, name) => {
+      setUnits(name);
+      setQuery((query) => ({...query, units}));
+    }
 
     return (
         <React.Fragment>
-            <NavBar onData={handleData} units={units} onUnitsChange={handleUnints} />
-            <WeatherViewer data={data} units={units} />
+            <NavBar onQueryChange={handleQueryChange} units={units} onUnitsChange={handleUnintsChange} />
+            <WeatherViewer query={query} units={units} />
         </React.Fragment>
     );
 };
 
-export default App;
+export default React.memo(App);

@@ -12,7 +12,10 @@ const Units = ({ units, onChange }) => {
         { value: "imperial", title: "Fahrenheit" },
         { value: "metric", title: "Celsius" }
     ];
-    const handleChange = (value) => onChange(value);
+    const handleChange = (value) => {
+        const name = unitsList.find(el => el.value === value)?.title;
+        onChange(value, name);
+    }
     
     return (
         <div className="units">
