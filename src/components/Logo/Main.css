@@ -1,0 +1,14 @@
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    margin-right: 10px; 
+}
+
+.logo span {
+    font-size: 2em;
+    font-weight: bold;
+    color: rgb(16, 42, 66);
+}
