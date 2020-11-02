@@ -12,7 +12,9 @@ const useRequest = (query, units) => {
             if (query && units) {
                 try {
                     setLoading(true);
-                    const response = await axios(`${process.env.REACT_APP_WEATHER_API_BASE}weather?q=${query}&units=${units}&appid=${process.env.REACT_APP_WEATHER_API_TOKEN}`);
+                    const current = await axios(`${process.env.REACT_APP_WEATHER_API_BASE}weather?q=${query}&units=${units}&appid=${process.env.REACT_APP_WEATHER_API_TOKEN}`);
+                    const { lon, lat } = current?.data?.coord;
+                    const response = await axios(`${process.env.REACT_APP_WEATHER_API_BASE}onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly,alerts&units=${units}&appid=${process.env.REACT_APP_WEATHER_API_TOKEN}`);
                     if (!ignore) setData(response.data);
                   } catch (err) {
                     setError(err);

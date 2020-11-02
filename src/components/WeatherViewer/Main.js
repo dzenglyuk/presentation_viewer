@@ -1,12 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
+import Spinner from "../Spinner/Main";
+import DailyWeather from "../DailyWeather/Main";
+import MainViewer from "../MainViewer/Main";
 import { useRequest } from "../../hooks";
 
+import "./Main.css";
+
 const WeatherViewer = ({ query, units }) => {
-    console.log(query, units);
     const { data, loading, error } = useRequest(query.value, query.units);
-    console.log(data, loading, error);
+    const { daily } = data || {};
+
     return (
-        <div>Temperature: 10&deg;{units[0]} </div>
+        <div className="weather-viewer">
+            {loading && <Spinner />}
+            {/* {error != {} && error} */}
+            {data &&
+                <React.Fragment>
+                    <MainViewer />
+                    <DailyWeather list={daily} units={units}/>
+                </React.Fragment>
+            }
+        </div>
     );
 };
 
