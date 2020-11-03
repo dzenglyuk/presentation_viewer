@@ -5,6 +5,7 @@ const useRequest = (query, units) => {
     const [data, setData] = useState({});
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState({});
+    const [location, setLocation] = useState('');
     
     useEffect(() => {
         let ignore = false;
@@ -15,7 +16,10 @@ const useRequest = (query, units) => {
                     const current = await axios(`${process.env.REACT_APP_WEATHER_API_BASE}weather?q=${query}&units=${units}&appid=${process.env.REACT_APP_WEATHER_API_TOKEN}`);
                     const { lon, lat } = current?.data?.coord;
                     const response = await axios(`${process.env.REACT_APP_WEATHER_API_BASE}onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly,alerts&units=${units}&appid=${process.env.REACT_APP_WEATHER_API_TOKEN}`);
-                    if (!ignore) setData(response.data);
+                    if (!ignore) {
+                        setData(response.data);
+                        setLocation(`${current?.data?.name}, ${current?.data?.sys?.country}`);
+                    }
                   } catch (err) {
                     setError(err);
                   } finally {
@@ -27,7 +31,7 @@ const useRequest = (query, units) => {
         return (() => { ignore = true; });
     }, [query, units]);
 
-    return { data, loading, error };
+    return { data, loading, error, location };
 };
 
 export default useRequest;

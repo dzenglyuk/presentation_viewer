@@ -13,7 +13,6 @@
 }
 
 .daily-item {
-    border-top: 1px solid white;
     padding: 10px;
     cursor: pointer;
     text-align: center;
@@ -30,7 +29,9 @@
 }
 
 .daily-item td p:nth-child(2) {
-    color: grey;
+    color: rgba(211, 211, 211, 0.849);
+    font-size: 1rem;
+    font-weight: 400;
 }
 
 .daily-item > td {

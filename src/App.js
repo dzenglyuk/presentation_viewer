@@ -32,7 +32,9 @@ const App = () => {
     return (
         <React.Fragment>
             <NavBar onQueryChange={handleQueryChange} units={units} onUnitsChange={handleUnintsChange} />
-            <WeatherViewer query={query} units={units} />
+            {query.value && 
+              <WeatherViewer query={query} units={units} />          
+            }
         </React.Fragment>
     );
 };

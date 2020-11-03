@@ -4,7 +4,6 @@ import { getIcon } from "../../../utils"
 const DailyItem = ({ data, units, day, onClick }) => {
     const { dt, temp, weather, wind_speed, humidity } = data;
     const icon = getIcon(weather[0].id);
-    console.log(data);
     return(
         <tr onClick={() => onClick(dt)} className="daily-item">
                 <td>{day}</td>
@@ -17,7 +16,7 @@ const DailyItem = ({ data, units, day, onClick }) => {
                 </td>
                 <td>
                     <p>{Math.round(temp.max)}&deg;{units[0]}</p>
-                    <p>Low</p>
+                    <p>High</p>
                 </td>
                 <td>
                     <p>{wind_speed} mph</p>

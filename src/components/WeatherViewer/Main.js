@@ -3,20 +3,21 @@ import Spinner from "../Spinner/Main";
 import DailyWeather from "../DailyWeather/Main";
 import MainViewer from "../MainViewer/Main";
 import { useRequest } from "../../hooks";
+import { isEmpty } from "../../utils";
 
 import "./Main.css";
 
 const WeatherViewer = ({ query, units }) => {
-    const { data, loading, error } = useRequest(query.value, query.units);
-    const { daily } = data || {};
-
+    const { data, loading, error, location } = useRequest(query.value, query.units);
+    const { daily, current } = data || {};
+    
     return (
         <div className="weather-viewer">
             {loading && <Spinner />}
-            {/* {error != {} && error} */}
-            {data &&
+            {!isEmpty(error) && error}
+            {!isEmpty(data) &&
                 <React.Fragment>
-                    <MainViewer />
+                    <MainViewer list={daily} current={current} units={units} location={location}/>
                     <DailyWeather list={daily} units={units}/>
                 </React.Fragment>
             }
