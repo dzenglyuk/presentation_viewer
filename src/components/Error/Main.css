@@ -1,0 +1,30 @@
+.error {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 95vh;
+    text-align: center;
+}
+
+.error h1 {
+    font-size: 5rem;
+    font-weight: bold;
+    color: whitesmoke;
+}
+
+.error h3 {
+    font-size: 2rem;
+    color: whitesmoke;
+}
+
+.error h4 {
+    font-size: 1.5rem;
+    color: whitesmoke;
+}
+
+@media (max-width: 600px) {
+    .error {
+        height: 70vh;
+    }
+}

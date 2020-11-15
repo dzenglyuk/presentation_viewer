@@ -5,11 +5,11 @@ import Units from "../Units/Main";
 
 import "./Main.css";
 
-const NavBar = ({ onData, units, onUnitsChange }) => {
+const NavBar = ({ onQueryChange, units, onUnitsChange }) => {
     return (
         <div className="navbar">
             <Logo />
-            <Search onData={onData} units={units} />
+            <Search onQueryChange={onQueryChange} className="desktop" />
             <Units units={units} onChange={onUnitsChange} />
         </div>
     );

@@ -9,3 +9,13 @@
     border-top-left-radius: 0.25rem;
     border-bottom-left-radius: 0.25rem;
 }
+
+@media (max-width: 400px) {
+    .navbar {
+        padding: 5px;
+    }
+
+    .select {
+        width: 100px;
+    }
+}
