@@ -8,7 +8,8 @@ You can check the example [here](https://dzenglyuk-weather.netlify.app/).
 
 ## Used resources
 
-All Weather data is taken from [Open Weather Map](https://openweathermap.org/) Free API. 
+All Weather data is taken from [Open Weather Map](https://openweathermap.org/) Free API.
+Information about user's current geolocation - from [IP Info](https://ipinfo.io/) API.
 
 ## Usage
 
