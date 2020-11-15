@@ -59,3 +59,21 @@
     width: 60px;
     height: 60px;
 }
+
+@media (max-width: 550px) {
+    .daily-item > td {
+        padding: 10px;
+    }
+}
+
+@media (max-width: 420px) {
+    .daily-item > td {
+        padding: 5px;
+    }
+    .daily-item > td:first-child {
+        font-size: 1rem;
+    }
+    .daily-item p {
+        font-size: 0.8rem;
+    }
+}

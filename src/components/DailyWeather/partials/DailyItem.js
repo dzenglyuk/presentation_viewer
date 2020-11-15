@@ -1,5 +1,5 @@
 import React from "react";
-import { getIcon } from "../../../utils"
+import { getIcon } from "../../../utils";
 
 const DailyItem = ({ data, units, day, onClick, isActive }) => {
     const { temp, weather, wind_speed, humidity } = data;
@@ -19,7 +19,7 @@ const DailyItem = ({ data, units, day, onClick, isActive }) => {
                     <p>High</p>
                 </td>
                 <td>
-                    <p>{wind_speed} mps</p>
+                    <p>{Math.round(wind_speed)} mps</p>
                     <p>Wind</p>
                 </td>
                 <td>

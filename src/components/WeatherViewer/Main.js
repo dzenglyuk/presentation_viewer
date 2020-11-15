@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Search from "../Search/Main";
 import Spinner from "../Spinner/Main";
 import DailyWeather from "../DailyWeather/Main";
 import MainViewer from "../MainViewer/Main";
@@ -9,7 +10,7 @@ import { isEmpty } from "../../utils";
 
 import "./Main.css";
 
-const WeatherViewer = ({ query, units }) => {
+const WeatherViewer = ({ query, units, onQueryChange}) => {
     const [active, setActive] = useState(0);
     const { data, loading, error, location } = useRequest(query.value, query.units);
     const { daily, hourly, current } = data || {};
@@ -21,6 +22,7 @@ const WeatherViewer = ({ query, units }) => {
     
     return (
         <div className="weather-viewer">
+            <Search onQueryChange={onQueryChange} className="mobile" />
             {loading && <Spinner />}
             {error && <Error />}
             {!isEmpty(data) &&

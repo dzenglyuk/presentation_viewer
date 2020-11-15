@@ -3,7 +3,7 @@ import { debounce } from "../../utils";
 
 import "./Main.css";
 
-const Search = ({ onQueryChange, debounceDelay }) => {
+const Search = ({ onQueryChange, className, debounceDelay }) => {
     const [value, setValue] = useState("");
     const [empty, setEmpty] = useState(false);
     const handleChange = (event) => {
@@ -27,7 +27,7 @@ const Search = ({ onQueryChange, debounceDelay }) => {
     };
     const placeholder = "Search by City name or ZIP code";
     return (
-        <form className="search" onSubmit={handleSubmit}>
+        <form className={"search " + className} onSubmit={handleSubmit}>
             <input
                 type="text"
                 className={empty ? "empty" : null}
@@ -42,6 +42,7 @@ const Search = ({ onQueryChange, debounceDelay }) => {
 
 Search.defaultProps = {
     debounceDelay: 500,
+    className: "desktop"
 };
 
 export default React.memo(Search);

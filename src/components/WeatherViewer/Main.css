@@ -2,3 +2,9 @@
     background-color: #2934b4;
     padding: 20px 50px;
 }
+
+@media (max-width: 700px) {
+    .weather-viewer {
+        padding: 15px;
+    }
+}

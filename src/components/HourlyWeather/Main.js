@@ -23,7 +23,7 @@ const HourlyWeather = ({ list, active }) => {
         return () => {
             window.removeEventListener("resize", handleScroll);
         };
-    }, []);
+    });
 
     return (
         <div className="hourly-weather">

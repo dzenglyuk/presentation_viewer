@@ -7,7 +7,7 @@ const Details = ({ item, units }) => {
 
     const list = useMemo(() => ([
         { desc: "High", value: Math.round(max) + "°" + units[0]},
-        { desc: "Wind", value: wind_speed + " mps" },
+        { desc: "Wind", value: Math.round(wind_speed) + " mps" },
         { desc: "Sunrise", value: getTime(sunrise)},
         { desc: "Low", value: Math.round(min) + "°" + units[0]},
         { desc: "Humidity", value: humidity + "%"},

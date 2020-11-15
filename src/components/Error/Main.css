@@ -22,3 +22,9 @@
     font-size: 1.5rem;
     color: whitesmoke;
 }
+
+@media (max-width: 600px) {
+    .error {
+        height: 70vh;
+    }
+}

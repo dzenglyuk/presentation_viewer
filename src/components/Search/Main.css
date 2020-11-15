@@ -30,3 +30,32 @@
     cursor: pointer;
     font-weight: bold;  
 }
+
+.mobile {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+}
+
+.mobile input {
+    border-radius: 5px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.mobile button {
+    border: 1px solid whitesmoke;
+    border-radius: 5px;
+    width: 100%;
+    background-color: #173983
+}
+
+@media (max-width: 600px) {
+    .desktop {
+        display: none;
+    }
+
+    .mobile {
+        display: flex;
+    }
+}

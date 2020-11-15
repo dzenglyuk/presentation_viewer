@@ -9,3 +9,9 @@
 .spinner div, .spinner span {
     color: hsl(205, 78%, 60%);
 }
+
+@media (max-width: 600px) {
+    .spinner {
+        height: 70vh;
+    }
+}

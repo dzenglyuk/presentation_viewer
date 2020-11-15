@@ -9,7 +9,7 @@ const NavBar = ({ onQueryChange, units, onUnitsChange }) => {
     return (
         <div className="navbar">
             <Logo />
-            <Search onQueryChange={onQueryChange} />
+            <Search onQueryChange={onQueryChange} className="desktop" />
             <Units units={units} onChange={onUnitsChange} />
         </div>
     );
