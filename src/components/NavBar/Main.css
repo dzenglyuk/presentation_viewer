@@ -5,3 +5,10 @@
     padding: 5px 15px;
     background-color: hsl(210, 36%, 96%);
 }
+
+
+@media (max-width: 400px) {
+    .navbar {
+        padding: 5px;
+    }
+}

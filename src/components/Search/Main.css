@@ -14,8 +14,12 @@
     width: 60%;
 }
 
+.search .empty {
+    border-color: red;
+}
+
 .search button {
-    background: hsl(205, 78%, 60%);
+    background-color: #2934b4;
     padding: 0.5rem 1rem;
     font-size: 1.2rem;
     border-color: transparent;
@@ -25,4 +29,33 @@
     color: #fff;
     cursor: pointer;
     font-weight: bold;  
+}
+
+.mobile {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+}
+
+.mobile input {
+    border-radius: 5px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.mobile button {
+    border: 1px solid whitesmoke;
+    border-radius: 5px;
+    width: 100%;
+    background-color: #173983
+}
+
+@media (max-width: 600px) {
+    .desktop {
+        display: none;
+    }
+
+    .mobile {
+        display: flex;
+    }
 }

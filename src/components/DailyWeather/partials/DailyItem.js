@@ -1,11 +1,11 @@
 import React from "react";
-import { getIcon } from "../../../utils"
+import { getIcon } from "../../../utils";
 
-const DailyItem = ({ data, units, day, onClick }) => {
-    const { dt, temp, weather, wind_speed, humidity } = data;
+const DailyItem = ({ data, units, day, onClick, isActive }) => {
+    const { temp, weather, wind_speed, humidity } = data;
     const icon = getIcon(weather[0].id);
     return(
-        <tr onClick={() => onClick(dt)} className="daily-item">
+        <tr onClick={onClick} className={isActive ? 'daily-item active' : 'daily-item'}>
                 <td>{day}</td>
                 <td>
                     <img alt="weather_icon" src={icon} />
@@ -19,7 +19,7 @@ const DailyItem = ({ data, units, day, onClick }) => {
                     <p>High</p>
                 </td>
                 <td>
-                    <p>{wind_speed} mph</p>
+                    <p>{Math.round(wind_speed)} mps</p>
                     <p>Wind</p>
                 </td>
                 <td>
@@ -30,4 +30,4 @@ const DailyItem = ({ data, units, day, onClick }) => {
     );
 };
 
-export default DailyItem;
+export default React.memo(DailyItem);

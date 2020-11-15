@@ -1,17 +1,15 @@
-const days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+const days = [ "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 const months = ["January", "February", "March", "April", "May", "June",
 "July", "August", "September", "October", "November", "December"
 ];
-const today = new Date().getDay() - 1;
 
 function getDay (num) {
-    let index = num + today;
-    index = index < 7 ? index : index - 7;
+    let index = num < 7 ? num : num - 7;
     return days[index];
 }
 
 function getMonth (num) {
-    return months[num-1];
+    return months[num];
 }
 
 function getDate (miliseconds) {

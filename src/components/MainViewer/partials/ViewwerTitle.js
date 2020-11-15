@@ -1,10 +1,11 @@
 import React from "react";
 import { getDay, getMonth } from "../../../utils";
 
-const ViewwerTitle = ({ location }) => {
+const ViewwerTitle = ({ location, active }) => {
     const date = new Date();
-    const dayName = getDay(0);
-    const day = date.getDay();
+    date.setDate(date.getDate() + active);
+    const dayName = getDay(date.getDay());
+    const day = date.getDate();
     const month = getMonth(date.getMonth());
     
     return (
@@ -19,4 +20,4 @@ const ViewwerTitle = ({ location }) => {
     );
 };
 
-export default ViewwerTitle;
+export default React.memo(ViewwerTitle);
