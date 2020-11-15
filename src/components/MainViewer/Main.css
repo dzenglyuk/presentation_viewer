@@ -5,17 +5,17 @@
     justify-content: center;
     flex-direction: column;
     color: whitesmoke;
-    padding-bottom: 30px;
 }
 
 .viewer-title {
     width: 100%;
     max-width: 1200px;
-    padding: 20px 50px;
+    margin-bottom: 20px;
 }
 
 .viewer-title p:nth-child(1) {
     font-size: 3rem;
+    font-weight: 600;
     margin: 0;
 }
 
@@ -33,11 +33,10 @@
 .viewer {
     width: 50%;
     display: flex;
-    padding: 0 50px;
+    justify-content: center;
 }
 
 .viewer > div {
-    width: 50%;
     display: flex;
     justify-content: center;
     flex-direction: column;

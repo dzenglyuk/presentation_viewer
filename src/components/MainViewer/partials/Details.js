@@ -12,7 +12,7 @@ const Details = ({ item, units }) => {
         { desc: "Low", value: Math.round(min) + "°" + units[0]},
         { desc: "Humidity", value: humidity + "%"},
         { desc: "Sunset", value: getTime(sunset)}
-    ]), [temp, wind_speed, humidity, sunrise, sunset]);
+    ]), [max, min, wind_speed, humidity, sunrise, sunset, units]);
 
     return (
         <div className="details">

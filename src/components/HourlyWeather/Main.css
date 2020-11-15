@@ -1,0 +1,38 @@
+.hourly-weather {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    color: whitesmoke;
+}
+
+.hourly-weather p {
+    font-size: 1.2rem;
+}
+
+.hourly-weather_items-container {
+    display: flex;
+    font-size: 1.2rem;
+    overflow-y: auto;
+    padding-bottom: 10px;
+}
+
+.center {
+    justify-content: center;
+}
+
+.hourly-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: #173983;
+    margin: 0 5px;
+    color: whitesmoke;
+}
+
+.hourly-item img {
+    width: 60px;
+    height: 60px;
+    margin: 10px 0;
+}

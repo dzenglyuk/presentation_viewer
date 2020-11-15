@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Spinner from "../Spinner/Main";
 import DailyWeather from "../DailyWeather/Main";
 import MainViewer from "../MainViewer/Main";
+import HourlyWeather from "../HourlyWeather/Main";
 import Error from "../Error/Main";
 import { useRequest } from "../../hooks";
 import { isEmpty } from "../../utils";
@@ -11,7 +12,8 @@ import "./Main.css";
 const WeatherViewer = ({ query, units }) => {
     const [active, setActive] = useState(0);
     const { data, loading, error, location } = useRequest(query.value, query.units);
-    const { daily, current } = data || {};
+    const { daily, hourly, current } = data || {};
+    const showHourly = active === 0 || active === 1;
     
     const handleActiveChange = (num) => {
         setActive(num);
@@ -24,6 +26,9 @@ const WeatherViewer = ({ query, units }) => {
             {!isEmpty(data) &&
                 <React.Fragment>
                     <MainViewer list={daily} current={current} units={units} location={location} active={active}/>
+                    {showHourly &&
+                        <HourlyWeather list={hourly} active={active} />                
+                    }
                     <DailyWeather list={daily} units={units} active={active} onActiveChange={handleActiveChange}/>
                 </React.Fragment>
             }

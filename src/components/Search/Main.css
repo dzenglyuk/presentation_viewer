@@ -19,7 +19,7 @@
 }
 
 .search button {
-    background: hsl(205, 78%, 60%);
+    background-color: #2934b4;
     padding: 0.5rem 1rem;
     font-size: 1.2rem;
     border-color: transparent;

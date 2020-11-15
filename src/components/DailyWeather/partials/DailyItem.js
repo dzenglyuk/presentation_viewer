@@ -2,7 +2,7 @@ import React from "react";
 import { getIcon } from "../../../utils"
 
 const DailyItem = ({ data, units, day, onClick, isActive }) => {
-    const { dt, temp, weather, wind_speed, humidity } = data;
+    const { temp, weather, wind_speed, humidity } = data;
     const icon = getIcon(weather[0].id);
     return(
         <tr onClick={onClick} className={isActive ? 'daily-item active' : 'daily-item'}>

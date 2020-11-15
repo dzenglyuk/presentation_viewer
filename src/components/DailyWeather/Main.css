@@ -1,8 +1,17 @@
 .daily-weather {
     display: flex;
     justify-content: center;
+    flex-direction: column;
     color: whitesmoke;
     font-weight: bold;
+    align-items: center;
+}
+
+.daily-weather p {
+    font-size: 1.2rem;
+    font-weight: normal;
+    width: 100%;
+    max-width: 1200px;
 }
 
 .daily-weather table {

@@ -13,6 +13,7 @@ const DailyWeather = ({ list, units, active, onActiveChange }) => {
 
     return (
         <div className="daily-weather">
+            <p> Daily </p>
             <table>
                 <tbody>
                     {list.map((item, index) => (
