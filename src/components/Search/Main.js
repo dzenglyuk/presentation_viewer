@@ -25,7 +25,9 @@ const Search = ({ onQueryChange, className, debounceDelay }) => {
             setEmpty(true);
         }
     };
+    
     const placeholder = "Search by City name or ZIP code";
+    
     return (
         <form className={"search " + className} onSubmit={handleSubmit}>
             <input

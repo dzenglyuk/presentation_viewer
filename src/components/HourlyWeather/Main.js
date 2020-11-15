@@ -40,4 +40,4 @@ const HourlyWeather = ({ list, active }) => {
     );
 };
 
-export default HourlyWeather;
+export default React.memo(HourlyWeather);

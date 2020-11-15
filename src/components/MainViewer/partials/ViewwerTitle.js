@@ -20,4 +20,4 @@ const ViewwerTitle = ({ location, active }) => {
     );
 };
 
-export default ViewwerTitle;
+export default React.memo(ViewwerTitle);

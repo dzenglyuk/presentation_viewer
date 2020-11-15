@@ -16,4 +16,4 @@ Error.defaultProps = {
     message: "We can't seem to find the location you're looking for."
 };
 
-export default Error;
+export default React.memo(Error);

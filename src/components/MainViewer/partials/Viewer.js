@@ -22,4 +22,4 @@ const Viewer = ({ item, current }) => {
     );
 };
 
-export default Viewer;
+export default React.memo(Viewer);

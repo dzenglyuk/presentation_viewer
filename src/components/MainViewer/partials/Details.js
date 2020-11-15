@@ -26,4 +26,4 @@ const Details = ({ item, units }) => {
     );
 };
 
-export default Details;
+export default React.memo(Details);

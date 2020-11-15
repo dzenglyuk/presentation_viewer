@@ -15,4 +15,4 @@ const HourlyItem = ({ data }) => {
     );
 };
 
-export default HourlyItem;
+export default React.memo(HourlyItem);

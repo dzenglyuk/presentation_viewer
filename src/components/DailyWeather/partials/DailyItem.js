@@ -30,4 +30,4 @@ const DailyItem = ({ data, units, day, onClick, isActive }) => {
     );
 };
 
-export default DailyItem;
+export default React.memo(DailyItem);
