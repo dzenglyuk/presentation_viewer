@@ -1,16 +1,29 @@
 import React from "react";
 import DailyItem from "./partials/DailyItem";
-import { getDay } from "../../utils"
+import { getDay } from "../../utils";
 
 import "./Main.css";
 
-const DailyWeather = ({ list, units }) => {
-    return(
+const DailyWeather = ({ list, units, active, onActiveChange }) => {
+    const handleClick = (id) => {
+        if (id !== active) {
+            onActiveChange(id);
+        }
+    };
+
+    return (
         <div className="daily-weather">
             <table>
                 <tbody>
                     {list.map((item, index) => (
-                        <DailyItem data={item} units={units} key={item.dt} day={getDay(index)}/>
+                        <DailyItem
+                            data={item}
+                            units={units}
+                            key={item.dt}
+                            day={getDay(index)}
+                            onClick={() => handleClick(index)}
+                            isActive={active === index}
+                        />
                     ))}
                 </tbody>
             </table>
@@ -19,7 +32,7 @@ const DailyWeather = ({ list, units }) => {
 };
 
 DailyWeather.defaultProps = {
-    list: []
+    list: [],
 };
 
 export default React.memo(DailyWeather);

@@ -20,6 +20,10 @@
     background-color: #173983;
 }
 
+.active {
+    background-color: #112b63;
+}
+
 .daily-item:hover {
     background-color: #112b63;
 }

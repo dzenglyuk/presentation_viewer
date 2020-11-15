@@ -4,7 +4,7 @@ import axios from 'axios';
 const useRequest = (query, units) => {
     const [data, setData] = useState({});
     const [loading, setLoading] = useState(false);
-    const [error, setError] = useState({});
+    const [error, setError] = useState('');
     const [location, setLocation] = useState('');
     
     useEffect(() => {
@@ -12,6 +12,8 @@ const useRequest = (query, units) => {
         const fetchData = async () => {
             if (query && units) {
                 try {
+                    setData({});
+                    setError('');
                     setLoading(true);
                     const current = await axios(`${process.env.REACT_APP_WEATHER_API_BASE}weather?q=${query}&units=${units}&appid=${process.env.REACT_APP_WEATHER_API_TOKEN}`);
                     const { lon, lat } = current?.data?.coord;
@@ -21,7 +23,7 @@ const useRequest = (query, units) => {
                         setLocation(`${current?.data?.name}, ${current?.data?.sys?.country}`);
                     }
                   } catch (err) {
-                    setError(err);
+                    setError(err.message);
                   } finally {
                     setLoading(false);
                 }
