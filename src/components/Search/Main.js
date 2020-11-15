@@ -9,11 +9,12 @@ const Search = ({ onQueryChange, className, debounceDelay }) => {
     const handleChange = (event) => {
         setValue(event.target.value);
     };
-    const handleQueryChange = useCallback(
-        debounce((value) => {
-            onQueryChange(value);
-        }, debounceDelay),
-        []
+    const handleQueryChange = useCallback(() => {
+            debounce((value) => {
+                onQueryChange(value);
+            }, debounceDelay);
+        },
+        [debounceDelay, onQueryChange]
     );
 
     const handleSubmit = (event) => {
