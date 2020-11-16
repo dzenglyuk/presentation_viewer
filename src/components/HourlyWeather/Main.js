@@ -4,10 +4,10 @@ import { getHours } from "../../utils";
 
 import "./Main.css";
 
-const HourlyWeather = ({ list, active }) => {
+const HourlyWeather = ({ list, active, daily }) => {
     const [centerAlign, setCenterAlign] = useState(false);
     const items = getHours(list, active);
-    
+
     const handleScroll = () => {
         let elem = document.querySelector('.hourly-weather_items-container');
         if (elem?.scrollWidth > elem?.clientWidth) {
@@ -33,6 +33,7 @@ const HourlyWeather = ({ list, active }) => {
                     <HourlyItem
                         data={item}
                         key={item.dt}
+                        daily={daily[active]}
                     />
                 ))}
             </div>

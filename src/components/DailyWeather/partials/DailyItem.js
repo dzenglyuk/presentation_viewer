@@ -1,9 +1,11 @@
 import React from "react";
-import { getIcon } from "../../../utils";
+import { getIcon, getDay } from "../../../utils";
 
-const DailyItem = ({ data, units, day, onClick, isActive }) => {
-    const { temp, weather, wind_speed, humidity } = data;
-    const icon = getIcon(weather[0].id);
+const DailyItem = ({ data, units, onClick, isActive }) => {
+    const { dt, temp, weather, wind_speed, humidity, sunrise, sunset } = data;
+    const icon = getIcon(weather[0].id, dt, sunrise, sunset);   
+    const day = getDay(new Date(dt * 1000).getDay());
+    
     return(
         <tr onClick={onClick} className={isActive ? 'daily-item active' : 'daily-item'}>
                 <td>{day}</td>

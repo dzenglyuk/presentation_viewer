@@ -2,9 +2,9 @@ import React from "react";
 import { getIcon } from "../../../utils";
 
 const Viewer = ({ item, current }) => {
-    const { temp, weather } = item;
+    const { dt, temp, weather, sunrise, sunset } = item;
     const tempValue = current ? temp : (temp?.min + temp?.max)/2; 
-    const icon = getIcon(weather[0]?.id);
+    const icon = getIcon(weather[0]?.id, dt, sunrise, sunset);
     const desc = weather[0].description.charAt(0).toUpperCase() + weather[0].description.slice(1);
 
     return (

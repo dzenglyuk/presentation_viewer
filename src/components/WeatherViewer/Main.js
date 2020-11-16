@@ -29,7 +29,7 @@ const WeatherViewer = ({ query, units, onQueryChange}) => {
                 <React.Fragment>
                     <MainViewer list={daily} current={current} units={units} location={location} active={active}/>
                     {showHourly &&
-                        <HourlyWeather list={hourly} active={active} />                
+                        <HourlyWeather list={hourly} daily={daily} active={active} />                
                     }
                     <DailyWeather list={daily} units={units} active={active} onActiveChange={handleActiveChange}/>
                 </React.Fragment>

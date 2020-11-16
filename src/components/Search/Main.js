@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useState } from "react";
 import { debounce } from "../../utils";
 
 import "./Main.css";
@@ -9,13 +9,10 @@ const Search = ({ onQueryChange, className, debounceDelay }) => {
     const handleChange = (event) => {
         setValue(event.target.value);
     };
-    const handleQueryChange = useCallback(() => {
-            debounce((value) => {
-                onQueryChange(value);
-            }, debounceDelay);
-        },
-        [debounceDelay, onQueryChange]
-    );
+    
+    const handleQueryChange = debounce((value) => {
+        onQueryChange(value)
+    }, debounceDelay);
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -44,7 +41,7 @@ const Search = ({ onQueryChange, className, debounceDelay }) => {
 };
 
 Search.defaultProps = {
-    debounceDelay: 500,
+    debounceDelay: 300,
     className: "desktop"
 };
 
